@@ -30,7 +30,7 @@ def main():
   delta = end_day - today
   days = delta.days
   
-  tweet = EVENT + "まであと" + str(days) + "日です。 #" + HASHTAG
+  tweet = EVENT + "まであと" + str(days) + "日 #" + HASHTAG
 
   # Call Twitter API to tweet
   api.update_status(tweet)
