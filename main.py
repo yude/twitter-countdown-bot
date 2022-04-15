@@ -28,7 +28,7 @@ def main():
   end_day = date(int(YEAR), int(MONTH), int(DAY))
   today = date.today()
   delta = end_day - today
-  days = delta.days + 1
+  days = delta.days
   
   tweet = EVENT + "まであと" + str(days) + "日です。 #" + HASHTAG
 
