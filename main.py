@@ -20,9 +20,10 @@ EVENT = os.environ.get("EVENT")
 HASHTAG = os.environ.get("HASHTAG")
 
 # Generate Twitter objects
-auth = tweepy.OAuthHandler(CK, CS)
-auth.set_access_token(AT, AS)
-api = tweepy.API(auth)
+client = tweepy.Client(consumer_key=CK,
+                       consumer_secret=CS,
+                       access_token=AT,
+                       access_token_secret=AS)
 
 def main():
   end_day = date(int(YEAR), int(MONTH), int(DAY))
@@ -33,7 +34,8 @@ def main():
   tweet = EVENT + "まであと" + str(days) + "日 #" + HASHTAG
 
   # Call Twitter API to tweet
-  api.update_status(tweet)
+  response = client.create_tweet(text=tweet)
+  print(response)
 
 if __name__ == '__main__':
   main()
