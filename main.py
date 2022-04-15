@@ -16,6 +16,7 @@ AS = os.environ.get("AS")
 YEAR = os.environ.get("YEAR")
 MONTH = os.environ.get("MONTH")
 DAY = os.environ.get("DAY")
+EVENT = os.environ.get("EVENT")
 
 # Generate Twitter objects
 auth = tweepy.OAuthHandler(CK, CS)
@@ -28,7 +29,7 @@ def main():
   delta = end_day - today
   days = delta.days + 1
   
-  tweet = "○○○まであと" + str(days) + "日です。"
+  tweet = event + "まであと" + str(days) + "日です。"
 
   # Call Twitter API to tweet
   api.update_status(tweet)
