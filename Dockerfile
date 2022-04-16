@@ -20,7 +20,7 @@ COPY --from=builder /etc/localtime /etc/localtime
 
 # Add script to crontab
 RUN mkdir -p /var/spool/cron/crontabs/ && \
-    echo '0 7 * * * cd /app; python run.py' >> /var/spool/cron/crontabs/root
+    echo '0 7 * * * cd /app; python main.py' >> /var/spool/cron/crontabs/root
 
 # Load app
 ADD ./ /app
